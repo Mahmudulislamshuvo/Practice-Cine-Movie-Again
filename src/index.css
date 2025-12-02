@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.dark {
+  @apply bg-[#171923] text-white;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.primary {
+  color: #00d991;
+}
