@@ -1,4 +1,5 @@
 import Content from "./components/Content/Content";
+import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
 
@@ -10,6 +11,7 @@ const App = () => {
         <Sidebar />
         <Content />
       </div>
+      <Footer />
     </div>
   );
 };

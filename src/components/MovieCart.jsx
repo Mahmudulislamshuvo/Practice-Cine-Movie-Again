@@ -1,6 +1,5 @@
-import starSvg from "../assets/star.svg";
-import movie1 from "../assets/movie-covers/iron-man.png";
 import getImageUrl from "../utils/getImageUrl";
+import Star from "./Star";
 
 const MovieCart = ({ movie }) => {
   return (
@@ -10,18 +9,14 @@ const MovieCart = ({ movie }) => {
           <img
             className="w-full object-cover"
             src={getImageUrl(movie.cover)}
-            alt={""}
+            alt={"movie_cover"}
           />
           <figcaption className="pt-4">
             <h3 className="text-xl mb-1">{movie.title}</h3>
             <p className="text-[#575A6E] text-sm mb-2">{movie.genre}</p>
             <div className="flex items-center space-x-1 mb-5">
               <div class="flex items-center space-x-1 mb-5">
-                <img src={starSvg} width="14" height="14" alt="" />
-                <img src={starSvg} width="14" height="14" alt="" />
-                <img src={starSvg} width="14" height="14" alt="" />
-                <img src={starSvg} width="14" height="14" alt="" />
-                <img src={starSvg} width="14" height="14" alt="" />
+                <Star value={movie.rating} />
               </div>
             </div>
             <button
@@ -29,7 +24,12 @@ const MovieCart = ({ movie }) => {
               href="#"
             >
               <img src="./assets/tag.svg" alt="" />
-              <span>${movie.price} | Add to Cart</span>
+              <span>
+                ${movie.price} |{" "}
+                <span className="px-2 py-1 bg-[#00D991] rounded-md">
+                  Add to Cart
+                </span>
+              </span>
             </button>
           </figcaption>
         </a>
