@@ -2,10 +2,14 @@ import logo from "../../assets/logo.svg";
 import ring from "../../assets/ring.svg";
 import shopingCart from "../../assets/shopping-cart.svg";
 import sun from "../../assets/icons/sun.svg";
+import { useState } from "react";
+import CartDetails from "../CartDetails";
 
 const Navbar = () => {
+  const [showCard, setShowcard] = useState(false);
   return (
-    <div>
+    <>
+      {showCard && <CartDetails setShowcard={setShowcard} />}
       <nav className="container flex items-center justify-between space-x-10 py-6">
         <a href="index.html">
           <img src={logo} width="139" height="26" alt="logo" />
@@ -32,13 +36,14 @@ const Navbar = () => {
             <a
               className="bg-primary/20 dark:bg-primary/[7%] rounded-lg backdrop-blur-[2px] p-1 inline-block"
               href="#"
+              onClick={() => setShowcard(true)}
             >
               <img src={shopingCart} width="24" height="24" alt="" />
             </a>
           </li>
         </ul>
       </nav>
-    </div>
+    </>
   );
 };
 
