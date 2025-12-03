@@ -7,6 +7,7 @@ const Star = ({ value }) => {
     <>
       {[...Array(totalStars)].map((_, i) => (
         <TiStarFullOutline
+          key={i}
           className={`${
             i < value ? "text-[#00D991]" : "text-[#D1D5DB]"
           } h-5 w-5`}

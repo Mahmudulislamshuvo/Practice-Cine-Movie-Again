@@ -5,8 +5,8 @@ const Content = () => {
   const movieData = getAllMovies();
   return (
     <div>
-      <div class="content">
-        <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-7">
+      <div className="content">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-7">
           {/* <!-- Begin Card --> */}
           {movieData.map((movie) => (
             <MovieCart key={movie.id} movie={movie} />
