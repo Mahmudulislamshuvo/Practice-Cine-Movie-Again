@@ -32,7 +32,7 @@ const CartDetails = ({ setShowcard }) => {
                     <img
                       className="rounded overflow-hidden h-20 w-14 md:w-20 object-cover"
                       src={getImageUrl(movie.cover)}
-                      alt=""
+                      alt={movie.cover}
                     />
                     <div>
                       <h3 className="text-base md:text-xl font-bold">
