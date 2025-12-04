@@ -2,13 +2,15 @@ import logo from "../../assets/logo.svg";
 import ring from "../../assets/ring.svg";
 import shopingCart from "../../assets/shopping-cart.svg";
 import sun from "../../assets/icons/sun.svg";
+import moon from "../../assets/icons/moon.svg";
 import { useContext, useState } from "react";
 import CartDetails from "../CartDetails";
-import { MovieContext } from "../../context";
+import { DarkmoodContext, MovieContext } from "../../context";
 
 const Navbar = () => {
   const [showCard, setShowcard] = useState(false);
   const { cardData } = useContext(MovieContext);
+  const { darkmood, setDarkmood } = useContext(DarkmoodContext);
 
   const handleOpenModal = () => {
     if (cardData.length > 0) {
@@ -17,6 +19,7 @@ const Navbar = () => {
       alert("Your cart is empty");
     }
   };
+
   return (
     <>
       {showCard && <CartDetails setShowcard={setShowcard} />}
@@ -38,8 +41,14 @@ const Navbar = () => {
             <a
               className="bg-primary/20 dark:bg-primary/[7%] rounded-lg backdrop-blur-[2px] p-1 inline-block"
               href="#"
+              onClick={() => setDarkmood(!darkmood)}
             >
-              <img src={sun} width="24" height="24" alt="sun" />
+              <img
+                src={darkmood ? sun : moon}
+                width="24"
+                height="24"
+                alt="sun"
+              />
             </a>
           </li>
           <li>

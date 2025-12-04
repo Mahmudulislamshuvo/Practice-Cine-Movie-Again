@@ -1,8 +1,7 @@
 import getImageUrl from "../utils/getImageUrl";
+import teg from "../assets/tag.svg";
 
-const MovieDetailsModal = ({ onClose, Selecdtedmovie }) => {
-  console.log(Selecdtedmovie);
-
+const MovieDetailsModal = ({ onClose, Selecdtedmovie, handleCart }) => {
   return (
     <div>
       <div className="fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-sm">
@@ -28,10 +27,11 @@ const MovieDetailsModal = ({ onClose, Selecdtedmovie }) => {
               </p>
               <div className="grid lg:grid-cols-2 gap-2">
                 <a
-                  className="bg-primary rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-[#171923] font-semibold text-sm"
+                  className="bg-primary rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-[#171923] font-semibold text-sm bg-[#00D991]"
                   href="#"
+                  onClick={(event) => handleCart(event, Selecdtedmovie)}
                 >
-                  <img src="./assets/tag.svg" alt="" />
+                  <img src={teg} alt="teg" />
                   <span>${Selecdtedmovie.price} | Add to Cart</span>
                 </a>
                 <a

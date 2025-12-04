@@ -1,24 +1,20 @@
 import { useState } from "react";
-import Content from "./components/Content/Content";
-import Footer from "./components/Footer/Footer";
-import Navbar from "./components/Navbar/Navbar";
-import Sidebar from "./components/Sidebar/Sidebar";
-import { MovieContext } from "./context";
+import Page from "./Page";
+import { DarkmoodContext, MovieContext } from "./context";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
+  const [darkmood, setDarkmood] = useState(false);
   const [cardData, setCardData] = useState([]);
-
   return (
-    <div className="dark:bg-body bg-white font-[Sora] dark:text-white text-dark">
-      <MovieContext.Provider value={{ cardData, setCardData }}>
-        <Navbar />
-        <div className="container grid lg:grid-cols-[218px_1fr] gap-5">
-          <Sidebar />
-          <Content />
-        </div>
-      </MovieContext.Provider>
-      <Footer />
-    </div>
+    <>
+      <DarkmoodContext.Provider value={{ darkmood, setDarkmood }}>
+        <MovieContext.Provider value={{ cardData, setCardData }}>
+          <Page />
+          <Toaster position="top-left" reverseOrder={false} />
+        </MovieContext.Provider>
+      </DarkmoodContext.Provider>
+    </>
   );
 };
 

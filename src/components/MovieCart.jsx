@@ -3,6 +3,7 @@ import getImageUrl from "../utils/getImageUrl";
 import Star from "./Star";
 import MovieDetailsModal from "./MovieDetailsModal";
 import { MovieContext } from "../context";
+import { InfoToast, SuccessToast } from "../utils/toast";
 
 const MovieCart = ({ movie }) => {
   const [toggleModal, setToggleModal] = useState(false);
@@ -29,9 +30,10 @@ const MovieCart = ({ movie }) => {
       return item.id === movie.id;
     });
     if (found) {
-      alert("Movie is already in the cart");
+      InfoToast("Movie is already in the cart");
     } else {
       setCardData([...cardData, movie]);
+      SuccessToast("Movie added to cart successfully");
     }
   };
 
@@ -41,9 +43,10 @@ const MovieCart = ({ movie }) => {
         <MovieDetailsModal
           onClose={handleCloseModal}
           Selecdtedmovie={selectedMovie}
+          handleCart={handleCart}
         />
       )}
-      <figure className="p-4 border border-black/10 shadow-sm dark:border-white/10 rounded-xl">
+      <figure className="p-4 border shadow-sm  rounded-xl z-10">
         <a href="" onClick={handleMovieSelection}>
           <img
             className="w-full object-cover"
